@@ -1,0 +1,17 @@
+version: '3'
+
+
+services:
+  db:
+    container_name: db
+    image: mysql:debian
+    volumes:
+      - ./mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: pruebasDB
+      MYSQL_USER: jesus
+      MYSQL_PASSWORD: 123456
+      MYSQL_ROOT_PASSWORD: 123456
+    
