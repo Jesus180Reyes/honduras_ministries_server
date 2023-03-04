@@ -17,7 +17,8 @@ export const Sponsor = dbConnection.define("sponsors",{
     },
     phone_number: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
+        defaultValue: "NO ASSIGNED"
 
     },
     state: {
@@ -27,9 +28,23 @@ export const Sponsor = dbConnection.define("sponsors",{
     },
     password: {
         type: DataTypes.STRING,
-        defaultValue: false
-    }
+        allowNull: false
+    },
+    
+    address: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
 
     
 
 });
+
+Sponsor.prototype.toJSON = function () {
+    let values = Object.assign({}, this.get());
+   
+    values.uid = values.id
+    delete values.password;
+    delete values.id;
+    return values;
+  }

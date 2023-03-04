@@ -3,6 +3,7 @@ import cors from 'cors'
 import {Application} from 'express';
 import sponsors from '../routes/sponsor';
 import admins from '../routes/admin';
+import childs from '../routes/child';
 import { dbConnection } from '../db/connection';
 
 // const { dbConnection } = require('../database/config');
@@ -12,7 +13,8 @@ class Server {
     private port:string;
     private paths = {
         sponsor:   '/api/sponsors',
-        admin:     "/api/admin"
+        admin:     "/api/admin",
+        child:     "/api/childs",
 
     }
     constructor() {
@@ -65,6 +67,7 @@ class Server {
       
         this.app.use( this.paths.sponsor, sponsors);
         this.app.use( this.paths.admin, admins);
+        this.app.use( this.paths.child, childs);
         
     }
 
