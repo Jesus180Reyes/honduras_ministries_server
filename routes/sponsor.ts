@@ -26,7 +26,6 @@ router.post("/",[
     check("email").custom(emailExists),
     check("address", "Address is required").not().isEmpty(),
     check("password", "Password is required").not().isEmpty(),
-    check("gender", "Gender is required").not().isEmpty(),
     check("password", "The password is so low, add a strongest password").isLength({min:6}),
     validateFields
 ], postSponsor);
