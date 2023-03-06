@@ -1,5 +1,6 @@
 import { Child } from '../models/Child';
 import { Sponsor } from '../models/Sponsor';
+import { Sponsored } from '../models/Sponsored';
 export const emailExists = async (email:string) => {
     const emailExists = await Sponsor.findOne({ where: {email: email} });
     if (emailExists) {
@@ -40,5 +41,18 @@ export const childExistsByCode = async(code:string)=> {
         throw new Error(`Child with ${code} not exists`);
        
     }
+
+}
+
+
+export const sponsoredsExistsById = async (sponsor:string)=>{
+
+    const isSponsoredsExists = await Sponsored.findOne({where: {"sponsor.uid":sponsor}});
+
+
+    if(!isSponsoredsExists){
+        throw new Error(`Sponsor with id: ${sponsor} doesn't have a child sponsored.`);
+    }
+    
 
 }

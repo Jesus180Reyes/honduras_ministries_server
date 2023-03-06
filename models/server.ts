@@ -5,6 +5,7 @@ import sponsors from '../routes/sponsor';
 import admins from '../routes/admin';
 import childs from '../routes/child';
 import auth from '../routes/auth';
+import sponsored from '../routes/sponsoreds';
 import { dbConnection } from '../db/connection';
 
 // const { dbConnection } = require('../database/config');
@@ -16,7 +17,8 @@ class Server {
         sponsor:   '/api/sponsors',
         admin:     "/api/admin",
         child:     "/api/childs",
-        auth:      "/api/auth"
+        auth:      "/api/auth",
+        sponsored: "/api/sponsoreds"
 
     }
     constructor() {
@@ -71,6 +73,7 @@ class Server {
         this.app.use( this.paths.admin, admins);
         this.app.use( this.paths.child, childs);
         this.app.use( this.paths.auth, auth);
+        this.app.use( this.paths.sponsored, sponsored);
         
     }
 
