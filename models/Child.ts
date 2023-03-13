@@ -32,6 +32,10 @@ export const Child = dbConnection.define("childs",{
         type: DataTypes.STRING,
         allowNull: false,
     },
+    imgSrc: {
+        type: DataTypes.STRING,
+        defaultValue: "https://res.cloudinary.com/dxzafq3oh/image/upload/v1662406100/user_qwgkj9.png"
+    }
     
 });
 

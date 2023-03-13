@@ -23,6 +23,7 @@ router.post("/",[
     check("birthday", "Birthday are you add isn't real").isDate(),
     check("code", "Code is required").not().isEmpty(),
     check("gender", "Gender is required").not().isEmpty(),
+    check("imgSrc", "Image Not valid").isString(),
     validateFields
 ],postChild);
 router.delete("/:id",[
