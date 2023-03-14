@@ -31,7 +31,7 @@ export const getChild = async (req:Request, res: Response)=> {
 export const getChildByCode = async (req:Request, res: Response)=> {
     const {code} = req.params;
 
-    const child = await Child.findOne({where: {code:code}});
+    const child = await Child.findAndCountAll({where: {code:code}});
     res.json({
         ok: true,
         child
