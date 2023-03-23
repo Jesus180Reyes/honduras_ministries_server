@@ -4,7 +4,7 @@ version: '3'
 services:
   app:
     container_name: child_sponsor_server
-    image: jesus18reyes/child_sponsor_server:1.0.0
+    image: jesus18reyes/child_sponsor_server:${VERSION_IMAGE}
     volumes:
       - .:/app/
     environment:
