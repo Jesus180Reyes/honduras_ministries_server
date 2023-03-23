@@ -2,8 +2,26 @@ version: '3'
 
 
 services:
+  app:
+    container_name: child_sponsor_server
+    image: jesus18reyes/child_sponsor_server:1.0.0
+    volumes:
+      - .:/app/
+    environment:
+      PORT: ${PORT}
+      MYSQL_DB: ${MYSQL_DB}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_PORT: ${MYSQL_PORT}
+    ports:
+      - ${PORT}:${PORT}
+    depends_on:
+      - db
+    restart: always
   db:
     container_name: db
+    restart: always
     image: mysql:debian
     volumes:
       - ./mysql:/var/lib/mysql
